@@ -2,68 +2,172 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Compose ton Cadeau 🎁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HappyBulle 🎀</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; }
-    h1 { color: #c2185b; }
-    .section { margin-bottom: 20px; padding: 10px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    label { display: block; margin: 5px 0; }
-    .total { font-size: 20px; font-weight: bold; margin-top: 20px; }
-    button { background: #c2185b; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 5px; }
-    button:hover { background: #a3154a; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #444;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #ff69b4;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    header img {
+      max-height: 80px;
+    }
+    h1 {
+      margin: 10px 0 0;
+    }
+    .slogan {
+      font-style: italic;
+      font-size: 16px;
+    }
+    .articles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+    .article {
+      background: #ffe4f2;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      width: 200px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .article img {
+      width: 100%;
+      border-radius: 10px;
+      height: 150px;
+      object-fit: cover;
+    }
+    .article button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .article button:hover {
+      background-color: #e7549e;
+    }
+    .panier {
+      background: #f8f8f8;
+      padding: 20px;
+      text-align: center;
+      border-top: 2px solid #ff69b4;
+    }
+    .panier h2 {
+      margin-bottom: 10px;
+    }
+    .garantie {
+      background: #fff0f6;
+      text-align: center;
+      padding: 20px;
+      font-size: 18px;
+      color: #e7549e;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #ff69b4;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+    footer p {
+      margin: 5px 0;
+    }
   </style>
 </head>
 <body>
-  <h1>Compose ton Cadeau 🎁</h1>
 
-  <div class="section">
-    <h2>Choisis tes articles :</h2>
-    <label><input type="checkbox" value="120" class="article"> 🧸 Ours Marron (120 MAD)</label>
-    <label><input type="checkbox" value="100" class="article"> 🐶 Chien (100 MAD)</label>
-    <label><input type="checkbox" value="130" class="article"> 🧸 Ours Rose (130 MAD)</label>
-    <label><input type="checkbox" value="70" class="article"> 🍫 Chocolat (70 MAD)</label>
-    <label><input type="checkbox" value="50" class="article"> 🍬 Bonbon (50 MAD)</label>
-    <label><input type="checkbox" value="40" class="article"> 🪶 Plume (40 MAD)</label>
-    <label><input type="checkbox" value="60" class="article"> 🎈 Ballon Transparent (60 MAD)</label>
-    <label><input type="checkbox" value="80" class="article"> 🎈 Ballon Boy or Girl (80 MAD)</label>
+  <header>
+    <img src="logo.png" alt="HappyBulle Logo">
+    <h1>HappyBulle 🎀</h1>
+    <p class="slogan">Vos émotions dans un ballon — des cadeaux uniques pour vos proches 🎁</p>
+  </header>
+
+  <section class="articles">
+    <div class="article">
+      <img src="ours_marron.jpg" alt="Ours Marron">
+      <h3>Ours Marron</h3>
+      <p>120 MAD</p>
+      <button onclick="ajouter('Ours Marron', 120)">Ajouter</button>
+    </div>
+    <div class="article">
+      <img src="chien.jpg" alt="Chien">
+      <h3>Chien</h3>
+      <p>100 MAD</p>
+      <button onclick="ajouter('Chien', 100)">Ajouter</button>
+    </div>
+    <div class="article">
+      <img src="ours_rose.jpg" alt="Ours Rose">
+      <h3>Ours Rose</h3>
+      <p>130 MAD</p>
+      <button onclick="ajouter('Ours Rose', 130)">Ajouter</button>
+    </div>
+    <div class="article">
+      <img src="chocolat.jpg" alt="Chocolat">
+      <h3>Chocolat</h3>
+      <p>70 MAD</p>
+      <button onclick="ajouter('Chocolat', 70)">Ajouter</button>
+    </div>
+    <div class="article">
+      <img src="bonbon.jpg" alt="Bonbon">
+      <h3>Bonbon</h3>
+      <p>50 MAD</p>
+      <button onclick="ajouter('Bonbon', 50)">Ajouter</button>
+    </div>
+    <div class="article">
+      <img src="plume.jpg" alt="Plume">
+      <h3>Plume</h3>
+      <p>40 MAD</p>
+      <button onclick="ajouter('Plume', 40)">Ajouter</button>
+    </div>
+    <div class="article">
+      <img src="ballon_transparent.jpg" alt="Ballon Transparent">
+      <h3>Ballon Transparent</h3>
+      <p>60 MAD</p>
+      <button onclick="ajouter('Ballon Transparent', 60)">Ajouter</button>
+    </div>
+    <div class="article">
+      <img src="ballon_boygirl.jpg" alt="Ballon Boy/Girl">
+      <h3>Ballon Boy/Girl</h3>
+      <p>80 MAD</p>
+      <button onclick="ajouter('Ballon Boy/Girl', 80)">Ajouter</button>
+    </div>
+  </section>
+
+  <section class="panier">
+    <h2>🛒 Ton Panier</h2>
+    <ul id="liste"></ul>
+    <p><strong>Total : <span id="total">0</span> MAD</strong></p>
+    <button onclick="payer()">💳 Payer maintenant</button>
+  </section>
+
+  <div class="garantie">
+    ✅ Satisfait ou Remboursé — Commandez en toute confiance !
   </div>
 
-  <div class="section">
-    <h2>Choisis le type de ballon :</h2>
-    <label><input type="radio" name="ballon" value="0" checked> Petit (+0 MAD)</label>
-    <label><input type="radio" name="ballon" value="20"> Moyen (+20 MAD)</label>
-    <label><input type="radio" name="ballon" value="40"> Grand (+40 MAD)</label>
-    <label><input type="radio" name="ballon" value="30"> Forme de cœur (+30 MAD)</label>
-  </div>
-
-  <div class="total">Total : <span id="total">0</span> MAD</div>
-
-  <button onclick="envoyerWhatsApp()">📩 Commander par WhatsApp</button>
+  <footer>
+    <p>Notre société respecte toutes les normes d’hygiène, de qualité et de sécurité. Chaque cadeau est préparé avec soin et amour.</p>
+    <p>© 2025 HappyBulle — Tous droits réservés</p>
+  </footer>
 
   <script>
-    const articles = document.querySelectorAll('.article');
-    const ballons = document.querySelectorAll('input[name="ballon"]');
-    const totalSpan = document.getElementById('total');
-
-    function calculerTotal() {
-      let total = 0;
-      articles.forEach(a => { if (a.checked) total += parseInt(a.value); });
-      ballons.forEach(b => { if (b.checked) total += parseInt(b.value); });
-      totalSpan.textContent = total;
-    }
-
-    articles.forEach(a => a.addEventListener('change', calculerTotal));
-    ballons.forEach(b => b.addEventListener('change', calculerTotal));
-
-    function envoyerWhatsApp() {
-      let message = "Nouvelle commande :%0A";
-      articles.forEach(a => { if (a.checked) message += "- " + a.parentElement.innerText + "%0A"; });
-      ballons.forEach(b => { if (b.checked) message += "Ballon : " + b.parentElement.innerText + "%0A"; });
-      message += "Total : " + totalSpan.textContent + " MAD";
-
-      // Remplace par ton numéro WhatsApp (ex: 212612345678)
-      window.open("https://wa.me/2126XXXXXXXX?text=" + message, "_blank");
-    }
-  </script>
-</body>
-</html>
+    let total = 0;
+    function ajouter(nom, prix) {
+      const liste = document.getElementById("liste");
+      const li = document.createElement("li");
+      li.textContent = nom + " - " + prix
