@@ -17,16 +17,48 @@
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    h1 {
+    header h1 {
       margin: 0;
       font-size: 34px;
       letter-spacing: 1px;
     }
-    nav {
+    nav.menu {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    nav.menu a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #d4af37;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    nav.menu a:hover {
+      color: #e75480;
+    }
+    .intro {
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .intro h2 {
+      color: #d4af37;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    .intro p {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.6;
+    }
+    nav.categories {
       margin: 30px;
       text-align: center;
     }
-    nav button {
+    nav.categories button {
       background: white;
       border: 2px solid #d4af37;
       color: #d4af37;
@@ -37,7 +69,7 @@
       font-size: 16px;
       transition: all 0.3s ease;
     }
-    nav button:hover {
+    nav.categories button:hover {
       background: #d4af37;
       color: white;
     }
@@ -74,11 +106,30 @@
 </head>
 <body>
   <header>
-    <h1>✨ Nos Produits ✨</h1>
-    <p>Composez votre pack personnalisé avec élégance 🎁</p>
+    <h1>✨ HappyBulle ✨</h1>
+    <p>Des cadeaux précieux, enfermés dans la magie d’un ballon</p>
   </header>
 
-  <nav>
+  <!-- Menu -->
+  <nav class="menu">
+    <a href="index.html">Accueil</a>
+    <a href="produits.html">Produits</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Présentation -->
+  <section class="intro">
+    <h2>🎀 Le concept</h2>
+    <p>
+      Offrez plus qu’un simple cadeau, créez une émotion inoubliable.  
+      Avec <strong>HappyBulle</strong>, chaque ballon renferme une surprise précieuse : peluches, chocolats, accessoires raffinés…  
+      Personnalisez votre pack et laissez la magie opérer.  
+      Élégance, originalité et raffinement au service de vos plus beaux moments.
+    </p>
+  </section>
+
+  <!-- Catégories -->
+  <nav class="categories">
     <button onclick="showCategory('peluches')">🧸 Peluches</button>
     <button onclick="showCategory('ballons')">🎈 Ballons</button>
     <button onclick="showCategory('accessoires')">🍫 Accessoires</button>
@@ -132,22 +183,4 @@
     <div class="product">
       <img src="images/bonbon.jpg" alt="Bonbon">
       <h3>Bonbon</h3>
-      <p class="price">40 DH</p>
-    </div>
-    <div class="product">
-      <img src="images/plume.jpg" alt="Plume">
-      <h3>Plume</h3>
-      <p class="price">30 DH</p>
-    </div>
-  </section>
-
-  <script>
-    function showCategory(id) {
-      document.querySelectorAll('.products').forEach(cat => {
-        cat.style.display = 'none';
-      });
-      document.getElementById(id).style.display = 'grid';
-    }
-  </script>
-</body>
-</html>
+      <p clas
