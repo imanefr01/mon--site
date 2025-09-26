@@ -5,169 +5,167 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HappyBulle 🎀</title>
   <style>
+    /* 🌸 Style global */
     body {
-      font-family: Arial, sans-serif;
-      background-color: #fff;
-      color: #444;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
     }
+    a { text-decoration: none; color: inherit; }
+
+    /* 🌸 Header */
     header {
-      background-color: #ff69b4;
+      background: #ff69b4;
       color: white;
-      text-align: center;
-      padding: 20px;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     header img {
-      max-height: 80px;
+      height: 50px;
     }
-    h1 {
-      margin: 10px 0 0;
-    }
-    .slogan {
-      font-style: italic;
-      font-size: 16px;
-    }
-    .articles {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
-      gap: 20px;
-    }
-    .article {
-      background: #ffe4f2;
-      border-radius: 10px;
-      padding: 15px;
-      text-align: center;
-      width: 200px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .article img {
-      width: 100%;
-      border-radius: 10px;
-      height: 150px;
-      object-fit: cover;
-    }
-    .article button {
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .article button:hover {
-      background-color: #e7549e;
-    }
-    .panier {
-      background: #f8f8f8;
-      padding: 20px;
-      text-align: center;
-      border-top: 2px solid #ff69b4;
-    }
-    .panier h2 {
-      margin-bottom: 10px;
-    }
-    .garantie {
-      background: #fff0f6;
-      text-align: center;
-      padding: 20px;
-      font-size: 18px;
-      color: #e7549e;
+    nav a {
+      margin: 0 15px;
       font-weight: bold;
     }
+
+    /* 🌸 Bannière */
+    .banner {
+      background: linear-gradient(to right, #ff69b4, #ffc1e3);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .banner h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .banner p {
+      font-size: 18px;
+    }
+
+    /* 🌸 Produits */
+    .produits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .produit {
+      background: #fff0f6;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .produit:hover {
+      transform: translateY(-5px);
+    }
+    .produit img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .produit h3 {
+      margin: 15px 0 5px;
+    }
+    .produit p {
+      font-weight: bold;
+      color: #e7549e;
+    }
+    .produit button {
+      background: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .produit button:hover {
+      background: #e7549e;
+    }
+
+    /* 🌸 Panier latéral */
+    .panier {
+      position: fixed;
+      right: -350px;
+      top: 0;
+      width: 300px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+      padding: 20px;
+      transition: right 0.3s;
+      z-index: 2000;
+    }
+    .panier.active {
+      right: 0;
+    }
+    .panier h2 {
+      margin-top: 0;
+      color: #ff69b4;
+    }
+    .panier ul {
+      list-style: none;
+      padding: 0;
+    }
+    .panier li {
+      margin: 10px 0;
+      font-size: 14px;
+    }
+    .panier button {
+      width: 100%;
+      padding: 10px;
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    /* 🌸 Garantie */
+    .garantie {
+      background: #ffe4f2;
+      text-align: center;
+      padding: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #e7549e;
+    }
+
+    /* 🌸 Footer */
     footer {
-      background-color: #ff69b4;
+      background: #ff69b4;
       color: white;
       text-align: center;
       padding: 20px;
       font-size: 14px;
     }
-    footer p {
-      margin: 5px 0;
-    }
   </style>
 </head>
 <body>
 
+  <!-- 🌸 HEADER -->
   <header>
-    <img src="logo.png" alt="HappyBulle Logo">
-    <h1>HappyBulle 🎀</h1>
-    <p class="slogan">Vos émotions dans un ballon — des cadeaux uniques pour vos proches 🎁</p>
+    <div>
+      <img src="logo.png" alt="Logo HappyBulle">
+    </div>
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#">Produits</a>
+      <a href="#">Contact</a>
+      <a href="#" onclick="togglePanier()">🛒 Panier</a>
+    </nav>
   </header>
 
-  <section class="articles">
-    <div class="article">
-      <img src="ours_marron.jpg" alt="Ours Marron">
-      <h3>Ours Marron</h3>
-      <p>120 MAD</p>
-      <button onclick="ajouter('Ours Marron', 120)">Ajouter</button>
-    </div>
-    <div class="article">
-      <img src="chien.jpg" alt="Chien">
-      <h3>Chien</h3>
-      <p>100 MAD</p>
-      <button onclick="ajouter('Chien', 100)">Ajouter</button>
-    </div>
-    <div class="article">
-      <img src="ours_rose.jpg" alt="Ours Rose">
-      <h3>Ours Rose</h3>
-      <p>130 MAD</p>
-      <button onclick="ajouter('Ours Rose', 130)">Ajouter</button>
-    </div>
-    <div class="article">
-      <img src="chocolat.jpg" alt="Chocolat">
-      <h3>Chocolat</h3>
-      <p>70 MAD</p>
-      <button onclick="ajouter('Chocolat', 70)">Ajouter</button>
-    </div>
-    <div class="article">
-      <img src="bonbon.jpg" alt="Bonbon">
-      <h3>Bonbon</h3>
-      <p>50 MAD</p>
-      <button onclick="ajouter('Bonbon', 50)">Ajouter</button>
-    </div>
-    <div class="article">
-      <img src="plume.jpg" alt="Plume">
-      <h3>Plume</h3>
-      <p>40 MAD</p>
-      <button onclick="ajouter('Plume', 40)">Ajouter</button>
-    </div>
-    <div class="article">
-      <img src="ballon_transparent.jpg" alt="Ballon Transparent">
-      <h3>Ballon Transparent</h3>
-      <p>60 MAD</p>
-      <button onclick="ajouter('Ballon Transparent', 60)">Ajouter</button>
-    </div>
-    <div class="article">
-      <img src="ballon_boygirl.jpg" alt="Ballon Boy/Girl">
-      <h3>Ballon Boy/Girl</h3>
-      <p>80 MAD</p>
-      <button onclick="ajouter('Ballon Boy/Girl', 80)">Ajouter</button>
-    </div>
-  </section>
-
-  <section class="panier">
-    <h2>🛒 Ton Panier</h2>
-    <ul id="liste"></ul>
-    <p><strong>Total : <span id="total">0</span> MAD</strong></p>
-    <button onclick="payer()">💳 Payer maintenant</button>
-  </section>
-
-  <div class="garantie">
-    ✅ Satisfait ou Remboursé — Commandez en toute confiance !
-  </div>
-
-  <footer>
-    <p>Notre société respecte toutes les normes d’hygiène, de qualité et de sécurité. Chaque cadeau est préparé avec soin et amour.</p>
-    <p>© 2025 HappyBulle — Tous droits réservés</p>
-  </footer>
-
-  <script>
-    let total = 0;
-    function ajouter(nom, prix) {
-      const liste = document.getElementById("liste");
-      const li = document.createElement("li");
-      li.textContent = nom + " - " + prix
+  <!-- 🌸 Bannière
