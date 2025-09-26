@@ -1,175 +1,4 @@
-[18:55, 26/09/2025] Imane Fr: <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HappyBulle 🎀</title>
-  <style>
-    /* 🌸 Style global */
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background-color: #fff;
-      color: #333;
-    }
-    a { text-decoration: none; color: inherit; }
-
-    /* 🌸 Header */
-    header {
-      background: #ff69b4;
-      color: white;
-      padding: 15px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header img {
-      height: 50px;
-    }
-    nav a {
-      margin: 0 15px;
-      font-weight: bold;
-    }
-
-    /* 🌸 Bannière */
-    .banner {
-      background: linear-gradient(to right, #ff69b4, #ffc1e3);
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .banner h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-    .banner p {
-      font-size: 18px;
-    }
-
-    /* 🌸 Produits */
-    .produits {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 40px;
-    }
-    .produit {
-      background: #fff0f6;
-      border-radius: 12px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-    .produit:hover {
-      transform: translateY(-5px);
-    }
-    .produit img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-    .produit h3 {
-      margin: 15px 0 5px;
-    }
-    .produit p {
-      font-weight: bold;
-      color: #e7549e;
-    }
-    .produit button {
-      background: #ff69b4;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      margin-top: 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .produit button:hover {
-      background: #e7549e;
-    }
-
-    /* 🌸 Panier latéral */
-    .panier {
-      position: fixed;
-      right: -350px;
-      top: 0;
-      width: 300px;
-      height: 100%;
-      background: #fff;
-      box-shadow: -4px 0 12px rgba(0,0,0,0.2);
-      padding: 20px;
-      transition: right 0.3s;
-      z-index: 2000;
-    }
-    .panier.active {
-      right: 0;
-    }
-    .panier h2 {
-      margin-top: 0;
-      color: #ff69b4;
-    }
-    .panier ul {
-      list-style: none;
-      padding: 0;
-    }
-    .panier li {
-      margin: 10px 0;
-      font-size: 14px;
-    }
-    .panier button {
-      width: 100%;
-      padding: 10px;
-      background: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-
-    /* 🌸 Garantie */
-    .garantie {
-      background: #ffe4f2;
-      text-align: center;
-      padding: 30px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #e7549e;
-    }
-
-    /* 🌸 Footer */
-    footer {
-      background: #ff69b4;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- 🌸 HEADER -->
-  <header>
-    <div>
-      <img src="logo.png" alt="Logo HappyBulle">
-    </div>
-    <nav>
-      <a href="#">Accueil</a>
-      <a href="#">Produits</a>
-      <a href="#">Contact</a>
-      <a href="#" onclick="togglePanier()">🛒 Panier</a>
-    </nav>
-  </header>
-
-  <!-- 🌸 Bannière
-[19:06, 26/09/2025] Imane Fr: <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -258,4 +87,177 @@
     }
     .btn {
       display: inline-block;
-      background: #
+      background: #e75480;
+      color: #fff;
+      padding: 10px 18px;
+      margin-top: 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #d14470;
+    }
+    #cart {
+      background: #ffe4e9;
+      padding: 30px;
+      margin: 30px auto;
+      border-radius: 12px;
+      max-width: 600px;
+      text-align: left;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    #cart h2 {
+      text-align: center;
+      color: #e75480;
+    }
+    #cart ul {
+      list-style: none;
+      padding: 0;
+    }
+    #cart li {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    #checkout-btn {
+      display: block;
+      background: #e75480;
+      color: #fff;
+      padding: 12px 20px;
+      margin: 20px auto 0;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    #checkout-btn:hover {
+      background: #d14470;
+    }
+    footer {
+      background: #ffe4e9;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 16px;
+      color: #555;
+    }
+    footer strong {
+      color: #e75480;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- En-tête -->
+  <header>
+    <img src="logo.png" alt="Logo HappyBulle">
+    <h1>HappyBulle</h1>
+    <p>Vos émotions dans un ballon 🎀 — Des cadeaux personnalisés et raffinés</p>
+  </header>
+
+  <!-- Menu -->
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#produits">Produits</a>
+    <a href="#engagement">Engagement</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Accueil -->
+  <section id="accueil">
+    <h2>Bienvenue chez HappyBulle</h2>
+    <p style="max-width:600px; margin:auto; font-size:18px; line-height:1.6;">
+      Offrez un cadeau unique et élégant.  
+      Chez <strong>HappyBulle</strong>, chaque détail compte : nous créons des packs personnalisés dans des ballons transparents, garnis de peluches, chocolats et accessoires.  
+      🎁 Laissez parler vos émotions, nous nous occupons du reste.
+    </p>
+  </section>
+
+  <!-- Produits -->
+  <section id="produits">
+    <h2>Nos Produits</h2>
+    <div class="products">
+      <div class="product">
+        <img src="ours_marron.jpg" alt="Ours Marron">
+        <h3>Ours Marron</h3>
+        <p data-price="150">150 DH</p>
+        <button class="btn">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="ours_rose.jpg" alt="Ours Rose">
+        <h3>Ours Rose</h3>
+        <p data-price="160">160 DH</p>
+        <button class="btn">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="chocolat.jpg" alt="Chocolat">
+        <h3>Chocolat</h3>
+        <p data-price="80">80 DH</p>
+        <button class="btn">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="ballon.jpg" alt="Ballon Transparent">
+        <h3>Ballon Transparent</h3>
+        <p data-price="50">50 DH</p>
+        <button class="btn">Ajouter au panier</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Panier -->
+  <section id="cart">
+    <h2>Votre Panier</h2>
+    <ul id="cart-items"></ul>
+    <p><strong>Total : <span id="total">0</span> DH</strong></p>
+    <a id="checkout-btn" href="#">Procéder au paiement</a>
+  </section>
+
+  <!-- Engagement -->
+  <section id="engagement" style="background:#fff0f5; padding:50px;">
+    <h2>Notre Engagement</h2>
+    <p style="max-width:650px; margin:auto; font-size:18px; line-height:1.6;">
+      Chez <strong>HappyBulle</strong>, chaque cadeau est préparé avec soin, élégance et respect des normes d’hygiène et de qualité.  
+      💳 Paiement 100% sécurisé en ligne  
+      🚚 Livraison partout au Maroc  
+      🎀 <strong>Satisfait ou remboursé</strong> — parce que votre bonheur est notre priorité.
+    </p>
+  </section>
+
+  <!-- Pied de page -->
+  <footer id="contact">
+    <p>Contactez-nous : <strong>contact@happybulle.ma</strong></p>
+    <p>© 2025 <strong>HappyBulle</strong> – Tous droits réservés</p>
+  </footer>
+
+  <script>
+    let total = 0;
+    const cartItems = document.getElementById("cart-items");
+    const totalEl = document.getElementById("total");
+
+    // Quand on clique "Ajouter au panier"
+    document.querySelectorAll(".btn").forEach(btn => {
+      btn.addEventListener("click", function() {
+        const product = this.parentElement;
+        const item = product.querySelector("h3").innerText;
+        const price = parseInt(product.querySelector("p").dataset.price);
+
+        const li = document.createElement("li");
+        li.textContent = item + " - " + price + " DH";
+        cartItems.appendChild(li);
+
+        total += price;
+        totalEl.innerText = total;
+      });
+    });
+
+    // Bouton paiement (simulation pour l’instant)
+    document.getElementById("checkout-btn").addEventListener("click", function(e) {
+      e.preventDefault();
+      alert("Merci pour votre confiance 🌸\nVous allez être redirigé vers le paiement sécurisé.");
+      // Ici on connectera PayPal / Stripe / CMI
+    });
+  </script>
+
+</body>
+</html>
