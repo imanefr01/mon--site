@@ -2,98 +2,183 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Boutique Cadeaux</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Gift Balloons</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: 'Didot', serif;
+      background-color: #fff;
+      color: #2c2c2c;
+    }
+
+    /* --- HEADER --- */
+    header {
+      background-color: #8B0000; /* Rouge bordeaux */
       padding: 20px;
-      background: #fff;
+      text-align: center;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 2.2em;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      margin-top: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #FFD700; /* Doré */
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    /* --- HERO (Accueil) --- */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(to right, #fff, #f5f5f5);
+    }
+
+    .hero h2 {
+      font-size: 2em;
+      color: #8B0000;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      max-width: 750px;
+      margin: 0 auto;
+      line-height: 1.6;
       color: #333;
     }
-    h1 {
-      color: #800020; /* Bordeaux */
+
+    /* --- SECTIONS PRODUITS --- */
+    .section {
+      padding: 60px 20px;
+      text-align: center;
     }
-    h2 {
-      margin-top: 30px;
-      color: #b8860b; /* Doré */
+
+    .section h3 {
+      font-size: 1.8em;
+      color: #8B0000;
+      margin-bottom: 30px;
     }
-    .produit {
-      border: 1px solid #ccc;
+
+    .products {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .product {
+      width: 250px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
       padding: 15px;
-      margin: 10px 0;
-      border-radius: 10px;
-      background: #fafafa;
+      background-color: white;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
     }
-    .panier {
-      border: 2px solid #444;
-      padding: 20px;
-      margin-top: 30px;
-      border-radius: 10px;
-      background: #f9f9f9;
+
+    .product:hover {
+      transform: scale(1.05);
     }
-    .paiement {
-      margin-top: 30px;
-      padding: 20px;
-      border: 2px solid #b8860b;
-      border-radius: 10px;
-      background: #fff8e7;
-    }
-    label {
-      display: block;
-      margin: 5px 0;
-    }
-    input[type="text"], input[type="number"] {
+
+    .product img {
       width: 100%;
-      padding: 8px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 12px;
     }
-    button {
-      background: #800020;
+
+    .product h4 {
+      color: #2c2c2c;
+      margin: 15px 0 10px;
+    }
+
+    .product p {
+      color: #8B0000;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: #8B0000;
       color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
     }
-    button:hover {
-      background: #b22222;
+
+    footer p {
+      margin: 5px 0;
     }
   </style>
 </head>
 <body>
 
-  <h1>🎁 Boutique Cadeaux</h1>
+  <!-- HEADER -->
+  <header>
+    <h1>Luxury Gift Balloons</h1>
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#">Produits</a>
+      <a href="#">Contacter nous</a>
+    </nav>
+  </header>
 
-  <!-- Peluches -->
-  <div class="produit">
-    <h2>Peluche</h2>
-    <label>
-      <input type="radio" name="peluche" value="Peluche petite" data-prix="80">
-      Petite (80 MAD)
-    </label>
-    <label>
-      <input type="radio" name="peluche" value="Peluche moyenne" data-prix="120">
-      Moyenne (120 MAD)
-    </label>
-  </div>
+  <!-- HERO (Présentation société) -->
+  <section class="hero">
+    <h2>Un concept unique au Maroc</h2>
+    <p>
+      <i class="fas fa-gift" style="color:#FFD700;"></i>  
+      Nous créons des cadeaux raffinés en insérant des trésors précieux dans des ballons transparents de différentes tailles et formes.  
+      Chaque création est pensée pour surprendre et séduire : peluches, chocolats, accessoires ou messages personnalisés.  
+      <br><br>
+      ✨ Satisfait ou remboursé — Paiement en ligne sécurisé ✨
+    </p>
+  </section>
 
-  <!-- Ballons -->
-  <div class="produit">
-    <h2>Ballon</h2>
-    <label>
-      <input type="radio" name="ballon" value="Ballon petit" data-prix="20">
-      Petit (20 MAD)
-    </label>
-    <label>
-      <input type="radio" name="ballon" value="Ballon moyen" data-prix="35">
-      Moyen (35 MAD)
-    </label>
-  </div>
+  <!-- PRODUITS -->
+  <section class="section">
+    <h3>Nos Produits</h3>
+    <div class="products">
+      <div class="product">
+        <img src="ours-marron.jpg" alt="Ours Marron">
+        <h4>Ours Marron</h4>
+        <p>150 DH</p>
+      </div>
+      <div class="product">
+        <img src="ballon-transparant.jpg" alt="Ballon Transparent">
+        <h4>Ballon Transparent</h4>
+        <p>100 DH</p>
+      </div>
+      <div class="product">
+        <img src="chocolat.jpg" alt="Chocolat">
+        <h4>Chocolat</h4>
+        <p>80 DH</p>
+      </div>
+    </div>
+  </section>
 
-  <!-- Accessoires -->
-  <div class="produit">
-    <h2>Accessoires</h2>
-    <label>
-      <input type=
+  <!-- FOOTER -->
+  <footer>
+    <p>Luxury Gift Balloons © 2025</p>
+    <p>Livraison partout au Maroc (frais non inclus)</p>
+    <p>✨ Élégance, Qualité, Satisfaction ✨</p>
+  </footer>
+
+</body>
+</html>
