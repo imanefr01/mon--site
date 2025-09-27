@@ -1,184 +1,92 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luxury Gift Balloons</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site de Commande en Ligne</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Didot', serif;
-      background-color: #fff;
-      color: #2c2c2c;
-    }
-
-    /* --- HEADER --- */
-    header {
-      background-color: #8B0000; /* Rouge bordeaux */
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      color: white;
-      font-size: 2.2em;
-      letter-spacing: 2px;
-    }
-
-    nav {
-      margin-top: 15px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #FFD700; /* Doré */
-      margin: 0 20px;
-      font-weight: bold;
-      font-size: 1.1em;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: white;
-    }
-
-    /* --- HERO (Accueil) --- */
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(to right, #fff, #f5f5f5);
-    }
-
-    .hero h2 {
-      font-size: 2em;
-      color: #8B0000;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 1.2em;
-      max-width: 750px;
-      margin: 0 auto;
-      line-height: 1.6;
-      color: #333;
-    }
-
-    /* --- SECTIONS PRODUITS --- */
-    .section {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .section h3 {
-      font-size: 1.8em;
-      color: #8B0000;
-      margin-bottom: 30px;
-    }
-
-    .products {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
-
-    .product {
-      width: 250px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      padding: 15px;
-      background-color: white;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-
-    .product:hover {
-      transform: scale(1.05);
-    }
-
-    .product img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    .product h4 {
-      color: #2c2c2c;
-      margin: 15px 0 10px;
-    }
-
-    .product p {
-      color: #8B0000;
-      font-weight: bold;
-      font-size: 1.1em;
-    }
-
-    /* --- FOOTER --- */
-    footer {
-      background-color: #8B0000;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 40px;
-    }
-
-    footer p {
-      margin: 5px 0;
-    }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background-color:#fff; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:10px 20px; background-color:#000; color:#fff; }
+    nav a { margin:0 10px; color:#fff; text-decoration:none; }
+    .logo img { height:60px; }
+    .categories, .products { padding:20px; }
+    .category-list button { margin:5px; padding:10px; border:none; background-color:#f5a; color:#fff; cursor:pointer; }
+    .product { border:1px solid #ccc; padding:10px; margin:10px; display:inline-block; width:150px; text-align:center; }
+    .product input { margin-top:5px; }
+    .total { padding:20px; font-size:18px; }
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
   <header>
-    <h1>Luxury Gift Balloons</h1>
+    <div class="logo">
+      <!-- Logo image to be added -->
+      <img src="logo.png" alt="Logo" />
+    </div>
     <nav>
-      <a href="#">Accueil</a>
-      <a href="#">Produits</a>
-      <a href="#">Contacter nous</a>
+      <a href="#accueil">Accueil</a>
+      <a href="#produits">Produits</a>
+      <a href="#contact">Contacter Nous</a>
     </nav>
   </header>
 
-  <!-- HERO (Présentation société) -->
-  <section class="hero">
-    <h2>Un concept unique au Maroc</h2>
-    <p>
-      <i class="fas fa-gift" style="color:#FFD700;"></i>  
-      Nous créons des cadeaux raffinés en insérant des trésors précieux dans des ballons transparents de différentes tailles et formes.  
-      Chaque création est pensée pour surprendre et séduire : peluches, chocolats, accessoires ou messages personnalisés.  
-      <br><br>
-      ✨ Satisfait ou remboursé — Paiement en ligne sécurisé ✨
-    </p>
-  </section>
-
-  <!-- PRODUITS -->
-  <section class="section">
-    <h3>Nos Produits</h3>
-    <div class="products">
-      <div class="product">
-        <img src="ours-marron.jpg" alt="Ours Marron">
-        <h4>Ours Marron</h4>
-        <p>150 DH</p>
-      </div>
-      <div class="product">
-        <img src="ballon-transparant.jpg" alt="Ballon Transparent">
-        <h4>Ballon Transparent</h4>
-        <p>100 DH</p>
-      </div>
-      <div class="product">
-        <img src="chocolat.jpg" alt="Chocolat">
-        <h4>Chocolat</h4>
-        <p>80 DH</p>
-      </div>
+  <section id="produits" class="categories">
+    <h2>Catégories</h2>
+    <div class="category-list">
+      <button onclick="showCategory('ballon')">Ballon</button>
+      <button onclick="showCategory('cadeaux')">Cadeaux</button>
+      <button onclick="showCategory('accessoires')">Accessoires</button>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>Luxury Gift Balloons © 2025</p>
-    <p>Livraison partout au Maroc (frais non inclus)</p>
-    <p>✨ Élégance, Qualité, Satisfaction ✨</p>
-  </footer>
+  <section class="products" id="product-list"></section>
 
+  <div class="total">Total: <span id="total-price">0</span> DHS</div>
+
+  <script>
+    const products = {
+      ballon: [
+        { name: 'Petite taille', price: 0 },
+        { name: 'Moyenne', price: 0 },
+        { name: 'Grande', price: 0 }
+      ],
+      cadeaux: [
+        { name: 'Ours blanc 33 cm', price: 0 },
+        { name: 'Ours rose 55 cm', price: 0 },
+        { name: 'Peluche 20 cm', price: 0 }
+      ],
+      accessoires: [
+        { name: 'Plume rose', price: 0 },
+        { name: 'Plume blanche', price: 0 },
+        { name: 'Étoile', price: 0 }
+      ]
+    };
+
+    let total = 0;
+
+    function showCategory(category) {
+      const list = document.getElementById('product-list');
+      list.innerHTML = '';
+      products[category].forEach((product, index) => {
+        const div = document.createElement('div');
+        div.className = 'product';
+        div.innerHTML = `
+          <div>${product.name}</div>
+          <div>${product.price} DHS</div>
+          <input type="checkbox" onchange="toggleProduct('${category}', ${index}, this)"> Ajouter au panier
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    function toggleProduct(category, index, checkbox) {
+      const product = products[category][index];
+      if (checkbox.checked) {
+        total += product.price;
+      } else {
+        total -= product.price;
+      }
+      document.getElementById('total-price').innerText = total;
+    }
+  </script>
 </body>
 </html>
