@@ -1,24 +1,246 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mon Business Pack</title>
-  <style>
-    body { font-family: Arial, sans-serif; background:#f9f9f9; margin:0; padding:0; }
-    header { background:#ff6f61; color:#fff; text-align:center; padding:18px 10px; font-size:22px; font-weight:700; }
-    .container { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:18px; padding:18px; }
-    .product { background:#fff; padding:14px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.08); text-align:center; }
-    .product img { width:100%; height:150px; object-fit:cover; border-radius:8px; }
-    .btn { margin-top:10px; padding:10px; background:#ff6f61; color:#fff; border:none; border-radius:6px; cursor:pointer; }
-    #pack { background:#fff3e0; padding:18px; margin:18px; border-radius:10px; }
-    #whatsapp { display:block; margin:18px auto; background:green; color:white; text-align:center; padding:12px; border-radius:8px; text-decoration:none; font-weight:700; width:200px; }
-    #whatsapp.disabled { background:#999; pointer-events:none; opacity:0.7; }
-    .remove-btn { margin-left:10px; background:#eee; border:1px solid #ccc; padding:4px 8px; border-radius:6px; cursor:pointer; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique en Ligne</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #000 0%, #2d2d2d 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            width: 120px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff69b4, #ffc0cb);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #000;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            background: linear-gradient(45deg, #ff69b4, #ffc0cb);
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .hero, .about, .contact-info {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            display: none;
+        }
+
+        .hero.active, .about.active, .contact-info.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .hero h1, .about h2, .contact-info h3 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #000, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .hero p, .about p, .contact-info p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        /* Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 3px solid transparent;
+            text-align: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.2);
+            border-color: #ff69b4;
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #000 0%, #2d2d2d 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.8); }
+            100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+        }
+    </style>
 </head>
 <body>
-  <header>Crée ton Pack Cadeau 🎁</header>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">VOTRE LOGO</div>
+            <nav class="nav">
+                <a href="#" class="nav-item" onclick="showSection('home')">Accueil</a>
+                <a href="#" class="nav-item" onclick="showSection('about')">Qui sommes-nous</a>
+                <a href="#" class="nav-item" onclick="showSection('contact')">Contacter Nous</a>
+            </nav>
+        </div>
+    </header>
 
-  <div class="container">
-    <!-- Remplace data-img par le chemin réel si tu veux un
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Accueil -->
+        <div class="hero active" id="home">
+            <h1>Bienvenue dans notre Boutique</h1>
+            <p>Découvrez nos magnifiques ballons, cadeaux et accessoires</p>
+            <div class="categories">
+                <div class="category-card">
+                    <h3>🎈 Ballons</h3>
+                    <p>Ballons de toutes tailles pour vos événements spéciaux</p>
+                </div>
+                <div class="category-card">
+                    <h3>🎁 Cadeaux</h3>
+                    <p>Peluches et cadeaux adorables pour faire plaisir</p>
+                </div>
+                <div class="category-card">
+                    <h3>✨ Accessoires</h3>
+                    <p>Accessoires décoratifs pour compléter vos créations</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Qui sommes-nous -->
+        <div class="about" id="about">
+            <h2>Qui sommes-nous ?</h2>
+            <p>Nous sommes une boutique spécialisée dans les ballons décoratifs, les cadeaux uniques et les accessoires qui embellissent vos événements. Notre objectif est de rendre chaque occasion inoubliable avec des produits de qualité et un service irréprochable.</p>
+        </div>
+
+        <!-- Contact -->
+        <div class="contact-info" id="contact">
+            <h3>Contactez-nous</h3>
+            <p>📧 Email: cadeaux.cadeaux@hotmail.com</p>
+            <p>📞 Téléphone: 0604216223</p>
+            <p>📍 Adresse: Casablanca</p>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/33604216223" class="whatsapp-btn" target="_blank" title="Contactez-nous sur WhatsApp">
+        📱
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Votre Boutique en Ligne. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Cacher toutes les sections
+            document.querySelectorAll('.hero, .about, .contact-info')
+                .forEach(sec => sec.classList.remove('active'));
+
+            // Afficher uniquement la section choisie
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
