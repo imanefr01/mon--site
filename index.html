@@ -17,10 +17,62 @@
             min-height: 100vh;
         }
 
+        /* Delivery Banner */
+        .delivery-banner {
+            background: linear-gradient(135deg, #ff69b4 0%, #ffc0cb 50%, #000 100%);
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .delivery-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: deliveryShine 3s ease-in-out infinite;
+        }
+
+        @keyframes deliveryShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .delivery-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .delivery-icon {
+            font-size: 1.8rem;
+            animation: deliveryMove 2s ease-in-out infinite;
+        }
+
+        @keyframes deliveryMove {
+            0%, 100% { transform: translateX(0px); }
+            50% { transform: translateX(10px); }
+        }
+
+        .delivery-text {
+            font-size: 1.1rem;
+        }
+
         /* Header */
         .header {
-            background: linear-gradient(135deg, #000 0%, #2d2d2d 100%);
-            color: white;
+            background: white;
+            color: black;
             padding: 1rem 0;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             position: sticky;
@@ -32,120 +84,91 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             padding: 0 2rem;
+            gap: 3rem;
         }
 
         .logo {
             width: 200px;
-            height: 80px;
-            background: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 50%, #ffa0b4 100%);
+            height: 120px;
+            background: #ffc0cb;
             border-radius: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #000;
             box-shadow: 0 8px 25px rgba(255, 182, 193, 0.4);
             position: relative;
-            overflow: hidden;
+            flex-shrink: 0;
+            padding: 10px;
+        }
+
+        .logo-balloon {
+            width: 50px;
+            height: 50px;
+            background: #ffc0cb;
             border: 3px solid #d4af37;
-            animation: logoFloat 0.5s ease-in-out 0s 6 alternate;
-        }
-
-        @keyframes logoFloat {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-5px); }
-        }
-
-        .logo-bubble {
-            width: 35px;
-            height: 35px;
-            background: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 100%);
-            border: 2px solid #d4af37;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 5px;
             position: relative;
-            animation: bubbleBounce 0.4s ease-in-out 0s 8 alternate;
         }
 
-        @keyframes bubbleBounce {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-
-        .logo-bubble::after {
+        .logo-balloon::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 8px solid #d4af37;
-            animation: stringWave 0.3s ease-in-out 0s 10 alternate;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 10px solid #d4af37;
         }
 
-        @keyframes stringWave {
-            0% { transform: translateX(-50%) rotate(0deg); }
-            100% { transform: translateX(-50%) rotate(3deg); }
+        .logo-balloon::before {
+            content: '✨';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 12px;
+            color: #ffd700;
         }
 
         .logo-gift {
-            font-size: 16px;
-            color: #e91e63;
-            animation: giftRotate 0.6s ease-in-out 0s 5 alternate;
+            font-size: 20px;
+            color: #e6739f;
         }
 
-        @keyframes giftRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(8deg); }
-        }
-
-        .logo-text {
-            font-size: 14px;
+        .logo-main-text {
+            font-size: 22px;
             font-family: 'Georgia', serif;
-            color: #e91e63;
+            color: #e6739f;
             text-align: center;
-            line-height: 1.1;
-            font-weight: 600;
-            animation: textGlow 0.5s ease-in-out 0s 6 alternate;
+            font-weight: 700;
+            margin: 5px 0;
         }
 
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 5px rgba(233, 30, 99, 0.3); }
-            100% { text-shadow: 0 0 15px rgba(233, 30, 99, 0.8), 0 0 25px rgba(233, 30, 99, 0.4); }
+        .logo-sub-text {
+            font-size: 11px;
+            color: #cc8db5;
+            font-family: 'Georgia', serif;
+            text-align: center;
+            opacity: 0.9;
         }
 
-        .logo-sparkle {
-            position: absolute;
-            font-size: 8px;
-            color: #ffd700;
-            animation: sparkle 0.25s ease-in-out 0s 12 alternate;
-        }
-
-        @keyframes sparkle {
-            0% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0.3; transform: scale(1.5); }
-        }
-
-        .sparkle-1 {
-            top: 8px;
-            right: 15px;
-            animation-delay: 0s;
-        }
-
-        .sparkle-2 {
-            top: 12px;
-            left: 12px;
-            animation-delay: 0.1s;
+        .nav-and-cart {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            flex: 1;
         }
 
         /* Floating balloons animation - 3 seconds only */
@@ -258,7 +281,7 @@
         }
 
         .nav-item {
-            color: white;
+            color: black;
             text-decoration: none;
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
@@ -269,14 +292,14 @@
 
         .nav-item:hover {
             background: linear-gradient(45deg, #ff69b4, #ffc0cb);
-            color: #000;
+            color: white;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
         }
 
         .cart-info {
             background: linear-gradient(45deg, #ff69b4, #ffc0cb);
-            color: #000;
+            color: white;
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
             font-weight: bold;
@@ -878,15 +901,36 @@
         }
 
         /* Responsive */
+        @media (max-width: 968px) {
+            .nav-and-cart {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.5rem;
             }
             
             .nav {
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+            
+            .logo {
+                width: 160px;
+                height: 80px;
+            }
+            
+            .logo-bubble {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .logo-text {
+                font-size: 14px;
             }
             
             .hero h1 {
@@ -900,6 +944,15 @@
     </style>
 </head>
 <body>
+    <!-- Delivery Banner -->
+    <div class="delivery-banner">
+        <div class="delivery-content">
+            <span class="delivery-icon">🚚</span>
+            <span class="delivery-text">Livraison partout au Maroc</span>
+            <span class="delivery-icon">📦</span>
+        </div>
+    </div>
+
     <!-- Floating Balloons Background -->
     <div class="floating-balloons">
         <div class="balloon">🎈</div>
@@ -916,21 +969,23 @@
     <header class="header">
         <div class="header-content">
             <div class="logo">
-                <div class="logo-bubble">
+                <div class="logo-balloon">
                     <span class="logo-gift">🎁</span>
                 </div>
-                <div class="logo-text">Happy Bulle</div>
-                <span class="logo-sparkle sparkle-1">✨</span>
-                <span class="logo-sparkle sparkle-2">⭐</span>
+                <div class="logo-main-text">Happy Bulle</div>
+                <div class="logo-sub-text">Des cadeaux qui font rêver</div>
             </div>
-            <nav class="nav">
-                <a href="#" class="nav-item" onclick="showHome()">Accueil</a>
-                <a href="#" class="nav-item" onclick="showAllProducts()">Qui Sommes Nous</a>
-                <a href="#contact" class="nav-item" onclick="showContact()">Contacter Nous</a>
-            </nav>
-            <div class="cart-info">
-                Panier: <span id="cart-count">0</span> articles - <span id="cart-total">0</span> DHS
-                <button id="order-btn" class="order-btn" onclick="showOrderForm()" style="display: none; margin-left: 1rem; background: #25D366; color: white; border: none; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer;">📋 Commander</button>
+            
+            <div class="nav-and-cart">
+                <nav class="nav">
+                    <a href="#" class="nav-item" onclick="showHome()">Accueil</a>
+                    <a href="#" class="nav-item" onclick="showAllProducts()">Qui Sommes Nous</a>
+                    <a href="#contact" class="nav-item" onclick="showContact()">Contacter Nous</a>
+                </nav>
+                <div class="cart-info">
+                    Panier: <span id="cart-count">0</span> articles - <span id="cart-total">0</span> DHS
+                    <button id="order-btn" class="order-btn" onclick="showOrderForm()" style="display: none; margin-left: 1rem; background: #25D366; color: white; border: none; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer;">📋 Commander</button>
+                </div>
             </div>
         </div>
     </header>
@@ -946,6 +1001,7 @@
             <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
                 Composez <strong>VOTRE cadeau unique</strong> en choisissant librement :
                 <br>🎈 Le ballon qui vous fait rêver • 🎁 Le cadeau qui touchera le cœur • ✨ Les accessoires qui subliment
+                <br><span style="color: #ff69b4; font-weight: bold;">🚚 Livraison dans tout le Maroc !</span>
             </p>
             <div style="background: linear-gradient(135deg, #ff69b4 0%, #ffc0cb 50%, #000 100%); padding: 2rem; border-radius: 15px; color: white; margin-top: 2rem;">
                 <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: white;">🌟 Votre création, Votre style, Votre moment magique 🌟</h3>
@@ -1040,7 +1096,7 @@
                 </div>
                 <div class="value-item">
                     <h4>🚚 Livraison Rapide</h4>
-                    <p>Service client exceptionnel</p>
+                    <p>Partout au Maroc</p>
                 </div>
                 <div class="value-item">
                     <h4>💝 Personnalisation</h4>
@@ -1059,19 +1115,19 @@
             <h2>Ballons</h2>
             <div class="products-grid">
                 <div class="product-card">
-                    <h4>Ballon Petite Taille</h4>
-                    <p class="price">50 DHS</p>
-                    <button class="add-to-cart" onclick="addToCart('Ballon Petite Taille', 50)">Ajouter au panier</button>
+                    <h4>🎈 Ballon Rond</h4>
+                    <p class="price">60 DHS</p>
+                    <button class="add-to-cart" onclick="addToCart('Ballon Rond', 60)">Ajouter au panier</button>
                 </div>
                 <div class="product-card">
-                    <h4>Ballon Moyenne Taille</h4>
+                    <h4>💖 Ballon Cœur</h4>
                     <p class="price">80 DHS</p>
-                    <button class="add-to-cart" onclick="addToCart('Ballon Moyenne Taille', 80)">Ajouter au panier</button>
+                    <button class="add-to-cart" onclick="addToCart('Ballon Cœur', 80)">Ajouter au panier</button>
                 </div>
                 <div class="product-card">
-                    <h4>Ballon Grande Taille</h4>
-                    <p class="price">120 DHS</p>
-                    <button class="add-to-cart" onclick="addToCart('Ballon Grande Taille', 120)">Ajouter au panier</button>
+                    <h4>👶 Ballon Boy or Girl</h4>
+                    <p class="price">100 DHS</p>
+                    <button class="add-to-cart" onclick="addToCart('Ballon Boy or Girl', 100)">Ajouter au panier</button>
                 </div>
             </div>
         </div>
